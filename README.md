@@ -7,6 +7,8 @@ The extended classes include (in [legacy](https://github.com/pytorch/text/blob/m
 
 Torchtext before 0.8.0 only converts vocabulary strings to indices, whereas out-of-vocabulary (OOV) words are recognized as ```'<unk>'```.
 
-To implement pointer / copy mechanism without abandoning TORCHTEXT, we use codes in [copynet](https://github.com/adamklec/copynet) and [pointer_summarizer](https://github.com/atulkum/pointer_summarizer) to write a light-weight extension for torchtext, though it is far from being official.
+To implement pointer / copy mechanism without abandoning Torchtext, we use codes in [copynet](https://github.com/adamklec/copynet) and [pointer_summarizer](https://github.com/atulkum/pointer_summarizer) to write a light-weight extension for torchtext, though it is far from being official.
+
+The classes in this extension are expected to be used in just the same way as standard Torchtext classes should be. Just add 'OOV' after each class in Torchtext would be enough.
 
 Any suggestion is welcome.
