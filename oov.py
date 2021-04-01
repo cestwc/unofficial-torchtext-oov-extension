@@ -118,7 +118,7 @@ class FieldOOV(Field):
 		def stoiOOV(arr, srcArr, vocab):
 			ids = []
 			srcOOV = list(set([x for x in srcArr if x not in vocab.stoi]))
-			print(srcOOV)
+			print(srcArr)
 			for i in range(len(arr)):
 				idx = vocab.stoi[arr[i]]
 				if idx == vocab.stoi['<unk>'] and arr[i] in srcOOV:
