@@ -22,6 +22,14 @@ A few things to note:
 ```python
 from oov import BucketIteratorOOV, FieldOOV
 
+spacy_en = spacy.load('en_core_web_sm')
+
+def tokenize_en(text):
+    """
+    Tokenizes English text from a string into a list of strings
+    """
+    return [tok.text for tok in spacy_en.tokenizer(text)]
+
 SRC = FieldOOV(tokenize = tokenize_en, 
             init_token = '<sos>', 
             eos_token = '<eos>', 
