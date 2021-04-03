@@ -67,9 +67,9 @@ train_iterator, valid_iterator, test_iterator = BucketIteratorOOV.splits(
      sort_within_batch = True,
      sort_key = lambda x : len(x.src),
      device = device)
-
-# test it
+```
+then test it
+```python
 for i, batch in enumerate(train_iterator):
 	print(batch.trg.shape)
 ```
-
