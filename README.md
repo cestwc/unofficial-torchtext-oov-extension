@@ -46,7 +46,7 @@ from torchtext.legacy import datasets
 
 fields = {'your_column_name': ('src', SRC), 'another_column_name': ('trg', TRG)}
 train_data, test_data = data.TabularDataset.splits(
-                            path = drivePath,
+                            path = your_path,
                             train = 'your-data-train.json',
                             test = 'your-data-test.json',
                             format = 'json',
