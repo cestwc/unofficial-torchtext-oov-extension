@@ -1,7 +1,7 @@
 from oov import FieldOOV
 
 import torch
-from torchtext.legacy import datasets
+from torchtext.legacy import datasets, data
 
 def generate_bigrams(x):
 	n_grams = set(zip(*[x[i:] for i in range(2)]))
