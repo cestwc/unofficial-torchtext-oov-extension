@@ -79,6 +79,8 @@ We have also added a customized ```Field``` class, inheriting the ```FieldOOV```
 
 If you'd like to use this class, you no longer need to import ```FieldOOV```, as it already does for you. Just try this:
 ```python
+from customized import ENGLISHTEXT
+
 SRC = ENGLISHTEXT(include_lengths = True, build_vocab = True)
 
 TRG = ENGLISHTEXT()
