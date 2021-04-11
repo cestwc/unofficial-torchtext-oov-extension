@@ -77,7 +77,7 @@ for i, batch in enumerate(train_iterator):
 ## A customized object
 We have also added a customized ```Field``` class, inheriting the ```FieldOOV``` class. This newly customized class is meant for common English texts, and therefore its many initializations are bonded to English, such as its tokenizer. We also let this field, called ```ENGLISHTEXT```, have its own fixed vocabulary. This vocabulary is a combined version from four popular Torchtext datasets, i.e., WikiText2, WikiText103 (part of it), PennTreebank, and SNLI. All these datasets are available on official websites. You may choose to use other datasets. The purpose of this class is mainly to maintain a same set of vocabulary in different models, and the vocabulary size has to be big enough to coverage the most common words, as "an average 20-year-old American knows 42,000 words" (just get this number from the [website](https://www.sciencemag.org/news/2016/08/average-20-year-old-american-knows-42000-words-depending-how-you-count-them)). The drawback is that it takes around 3 minutes to build your vocabulary, exclusive a 10 minutes dataset downloading waiting.
 
-If you'd like to use this class, you no longer need to import ```oov```, as it already does for you. Just try this:
+If you'd like to use this class, you no longer need to import ```FieldOOV```, as it already does for you. Just try this:
 ```python
 SRC = ENGLISHTEXT(include_lengths = True, build_vocab = True)
 
