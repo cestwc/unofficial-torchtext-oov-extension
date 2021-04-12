@@ -3,13 +3,48 @@ from oov import FieldOOV
 import torch
 from torchtext.legacy import datasets, data
 
+class ENGLISHTEXT(FieldOOV):
+
+	def __init__(self, sequential=True, use_vocab=True, init_token='<sos>',
+					eos_token='<eos>', fix_length=None, dtype=torch.long,
+					preprocessing=None, postprocessing=None, lower=True,
+					tokenize='spacy', tokenizer_language='en_core_web_sm', include_lengths=False,
+					batch_first=False, pad_token="<pad>", unk_token="<unk>",
+					pad_first=False, truncate_first=False, stop_words=None,
+					is_target=False, min_freq = 1, max_vocab_size=50000, vectors="glove.6B.100d", build_vocab=False):
+
+		super().__init__(sequential, use_vocab, init_token,
+					eos_token, fix_length, dtype,
+					preprocessing, postprocessing, lower,
+					tokenize, tokenizer_language, include_lengths,
+					batch_first, pad_token, unk_token,
+					pad_first, truncate_first, stop_words,
+					is_target)
+		
+		if build_vocab == True:
+			
+			valid_data, = data.TabularDataset.splits(
+							path = '.',
+							validation = 'FrequentWord50k.json',
+							format = 'json',
+							fields = {'text': ('text', self)}
+				)
+			
+			self.build_vocab(valid_data, 
+						min_freq = min_freq, 
+						max_size = max_vocab_size, 
+						vectors = vectors, 
+						unk_init = torch.Tensor.normal_)
+			
+
+
 def generate_bigrams(x):
 	n_grams = set(zip(*[x[i:] for i in range(2)]))
 	for n_gram in n_grams:
 		x.append(' '.join(n_gram))
 	return x
 
-class ENGLISHTEXT(FieldOOV):
+class ENGLISHTEXTSLOW(FieldOOV):
 
 	def __init__(self, sequential=True, use_vocab=True, init_token='<sos>',
 					eos_token='<eos>', fix_length=None, dtype=torch.long,
