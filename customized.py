@@ -3,12 +3,18 @@ from oov import FieldOOV
 import torch
 from torchtext.legacy import datasets, data
 
+def tokenize_en(text):
+	"""
+	Tokenizes English text from a string into a list of strings
+	"""
+	return [tok.text for tok in spacy_en.tokenizer(text)]
+
 class ENGLISHTEXT(FieldOOV):
 
 	def __init__(self, sequential=True, use_vocab=True, init_token='<sos>',
 					eos_token='<eos>', fix_length=None, dtype=torch.long,
 					preprocessing=None, postprocessing=None, lower=True,
-					tokenize='spacy', tokenizer_language='en_core_web_sm', include_lengths=False,
+					tokenize=tokenize_en, tokenizer_language='en_core_web_sm', include_lengths=False,
 					batch_first=False, pad_token="<pad>", unk_token="<unk>",
 					pad_first=False, truncate_first=False, stop_words=None,
 					is_target=False, min_freq = 1, max_vocab_size=50000, vectors="glove.6B.100d", build_vocab=False):
