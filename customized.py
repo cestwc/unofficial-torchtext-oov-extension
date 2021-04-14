@@ -3,6 +3,10 @@ from oov import FieldOOV
 import torch
 from torchtext.legacy import datasets, data
 
+import spacy
+
+spacy_en = spacy.load('en_core_web_sm')
+
 def tokenize_en(text):
 	"""
 	Tokenizes English text from a string into a list of strings
