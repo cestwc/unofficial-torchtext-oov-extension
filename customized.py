@@ -25,8 +25,8 @@ class ENGLISHTEXT(FieldOOV):
 			
 			valid_data, = data.TabularDataset.splits(
 							path = '.',
-							validation = 'FrequentWord50k.json',
-							format = 'json',
+							validation = 'FrequentWord50k.csv',
+							format = 'csv',
 							fields = {'text': ('text', self)}
 				)
 			
