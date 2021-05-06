@@ -27,7 +27,7 @@ class ENGLISHTEXT(FieldOOV):
 							path = '.',
 							validation = 'FrequentWord50k.csv',
 							format = 'csv',
-							fields = {'text': ('text', self)}
+							fields = {'words': ('words', self)}
 				)
 			
 			self.build_vocab(valid_data, 
