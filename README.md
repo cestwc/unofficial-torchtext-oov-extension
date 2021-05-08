@@ -90,3 +90,5 @@ TRG.vocab = SRC.vocab
 To make it slightly faster, we only build vocabularies for one ```Field``` and copy the vocabularies for the remaining.
 
 Now that your vocabulary is independent from your own datasets, and you will always have the consistent word-to-index pairs. Enjoy!
+
+```FrequentWord50k.csv``` contains a list of the 50,000 most common English words in order of frequency, derived from [Peter Norvig's](http://norvig.com/ngrams/) compilation of the [1/3 million most frequent English words](http://norvig.com/ngrams/count_1w.txt).
